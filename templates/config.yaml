@@ -1,0 +1,17 @@
+# Cursor JIRA Kit Configuration
+
+project:
+  jiraKey: PROJ          # Your JIRA project key
+  repo: owner/repo-name  # GitHub repo (owner/repo)
+
+workflow:
+  baseBranch: develop    # Branch to create features from
+  branchPattern: "feature/{ticket_key}"
+  transitions:
+    onPrCreated: "In Review"  # Status to transition to after PR (optional)
+
+# JIRA credentials (can also use environment variables)
+# jira:
+#   host: https://yourcompany.atlassian.net
+#   email: your@email.com
+#   apiToken: your-api-token

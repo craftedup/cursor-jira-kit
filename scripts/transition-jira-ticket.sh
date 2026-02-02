@@ -4,8 +4,9 @@
 
 set -e
 
-# Source .env if it exists
-[ -f .env ] && set -a && source .env && set +a
+# Source config
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/config.sh"
 
 TICKET_KEY="$1"
 TARGET_STATUS="$2"
@@ -15,12 +16,8 @@ if [ -z "$TICKET_KEY" ] || [ -z "$TARGET_STATUS" ]; then
     exit 1
 fi
 
-# Check required env vars
-if [ -z "$JIRA_HOST" ] || [ -z "$JIRA_EMAIL" ] || [ -z "$JIRA_API_TOKEN" ]; then
-    echo "Error: Missing required environment variables"
-    echo "Required: JIRA_HOST, JIRA_EMAIL, JIRA_API_TOKEN"
-    exit 1
-fi
+# Validate JIRA credentials
+validate_jira_credentials || exit 1
 
 AUTH_HEADER="Authorization: Basic $(echo -n "${JIRA_EMAIL}:${JIRA_API_TOKEN}" | base64)"
 

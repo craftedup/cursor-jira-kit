@@ -5,6 +5,10 @@
 
 set -e
 
+# Source config (optional - for repo info)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+[ -f "$SCRIPT_DIR/config.sh" ] && source "$SCRIPT_DIR/config.sh" 2>/dev/null || true
+
 PR_NUMBER="$1"
 
 # If no PR number provided, get it from current branch
