@@ -10,9 +10,32 @@ Drop-in JIRA integration for Cursor AI. Work on JIRA tickets directly from your 
 - **JIRA Updates**: Comment on tickets with PR links and preview URLs
 - **Status Transitions**: Automatically move tickets through your workflow
 
-## Quick Start
+## Installation
 
-### 1. Copy to Your Project
+### Via npm (Recommended)
+
+**1. Configure npm for GitHub Packages:**
+
+Add to `~/.npmrc`:
+```
+@craftedup:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+```
+
+Get a token at: https://github.com/settings/tokens/new?scopes=read:packages
+
+**2. Install globally:**
+```bash
+npm install -g @craftedup/cursor-jira-kit
+```
+
+**3. Initialize in your project:**
+```bash
+cd your-project
+cursor-jira-kit init
+```
+
+### Manual Installation
 
 ```bash
 # Clone this repo
@@ -23,16 +46,9 @@ cp -r cursor-jira-kit/scripts your-project/
 cp -r cursor-jira-kit/.cursor your-project/
 ```
 
-Or cherry-pick what you need:
-```bash
-# Just the scripts
-cp -r cursor-jira-kit/scripts your-project/
+## Quick Start
 
-# Just the Cursor skills
-cp -r cursor-jira-kit/.cursor your-project/
-```
-
-### 2. Configure Environment
+### 1. Configure Environment
 
 Set these environment variables (add to your shell profile or `.env.local`):
 
@@ -44,7 +60,7 @@ export JIRA_API_TOKEN="your-api-token"
 
 Get your API token from: https://id.atlassian.com/manage-profile/security/api-tokens
 
-### 3. Install Dependencies
+### 2. Install Dependencies
 
 The scripts require:
 - `curl` (usually pre-installed)
@@ -59,7 +75,7 @@ brew install jq gh
 gh auth login
 ```
 
-### 4. Use in Cursor
+### 3. Use in Cursor
 
 Open Cursor and ask:
 - "Work on ticket PROJ-123"
