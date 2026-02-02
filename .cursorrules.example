@@ -1,0 +1,23 @@
+# Example .cursorrules file
+# Copy to your project root as .cursorrules and customize
+
+# Project Context
+This is a [framework] project using [language] and [libraries].
+
+# JIRA Workflow
+When implementing JIRA tickets:
+- Create feature branches from `develop` (or your base branch)
+- Use commit message format: "TICKET-KEY: Description"
+- Create PRs against `develop`
+- Update JIRA with PR link when done
+
+# Code Conventions
+- Components go in src/components/
+- Use existing patterns when possible
+- Run linting before committing
+
+# Testing
+Before creating a PR:
+- Run `npm run lint`
+- Run `npm run test` (if applicable)
+- Verify the feature works locally
