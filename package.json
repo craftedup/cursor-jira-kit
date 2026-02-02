@@ -1,6 +1,6 @@
 {
   "name": "@craftedup/cursor-jira-kit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Drop-in JIRA integration for Cursor AI",
   "bin": {
     "cursor-jira-kit": "./bin/cli.js"
